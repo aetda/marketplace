@@ -1,0 +1,49 @@
+[
+  {
+    "model": "products.category",
+    "pk": 1,
+    "fields": {
+      "name": "Fruits",
+      "slug": "fruits",
+      "image": ""
+    }
+  },
+  {
+    "model": "products.subcategory",
+    "pk": 1,
+    "fields": {
+      "category": 1,
+      "name": "Citrus",
+      "slug": "citrus",
+      "image": ""
+    }
+  },
+  {
+    "model": "products.product",
+    "pk": 1,
+    "fields": {
+      "category": 1,
+      "subcategory": 1,
+      "name": "Orange",
+      "slug": "orange",
+      "price": "1.50",
+      "image_small": "photos/images (1).jpg",
+      "image_medium": "",
+      "image_large": ""
+    }
+  },
+  {
+    "model": "products.product",
+    "pk": 2,
+    "fields": {
+      "category": 1,
+      "subcategory": 1,
+      "name": "Lemon",
+      "slug": "lemon",
+      "price": "0.80",
+      "image_small": "/photos/lemon-na-hydroponike-main.jpg",
+      "image_medium": "",
+      "image_large": ""
+    }
+  }
+]
