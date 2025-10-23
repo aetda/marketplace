@@ -16,9 +16,8 @@ Django REST API для e-commerce проекта.
 
 git clone <URL репозитория>
 cd marketplace_api
-Создаём виртуальное окружение и активируем его:
 
-
+## Создаём виртуальное окружение и активируем его:
 python -m venv .venv
 # Windows
 .venv\Scripts\activate
@@ -28,12 +27,20 @@ source .venv/bin/activate
 Устанавливаем зависимости:
 pip install -r requirements.txt
 
-Делаем миграции и создаём суперпользователя:
+## Важная информация
+
+В файле `ecommerce_api/settings.py` значение `SECRET_KEY` нужно генерировать самостоятельно, чтобы проект был безопасным. Для этого можно использовать встроенный модуль Python:
+from django.core.management.utils import get_random_secret_key
+print(get_random_secret_key())
+
+Скопируйте сгенерированный ключ и вставьте его вместо значения SECRET_KEY в settings.py.
+
+## Делаем миграции и создаём суперпользователя:
 python manage.py makemigrations
 python manage.py migrate
 python manage.py createsuperuser
 
-Запускаем сервер:
+## Запускаем сервер:
 python manage.py runserver
 API Endpoints
 
@@ -44,7 +51,7 @@ api/schema/ — OpenAPI схема
 swagger/ — Swagger UI
 
 Для работы с защищёнными эндпоинтами используйте токен авторизации.
-Использование токена
+## Использование токена
 Пример запроса с curl:
 
 curl -X POST http://127.0.0.1:8000/api/token-auth/ \
@@ -55,9 +62,9 @@ curl -X POST http://127.0.0.1:8000/api/token-auth/ \
   "token": "your-token-here"
 }
 
-Загрузка фикстур
+## Загрузка фикстур
 python manage.py loaddata fixtures.json
 
 Все изменения в БД делайте через миграции
 
-Для тестов используйте фикстуры или создавайте свои объекты через админку
+Для тестов используйте фикстуры или создавайте свои объекты через админку.
